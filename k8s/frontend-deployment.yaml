@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: leads-ui
-        image: YOUR_DOCKERHUB_USERNAME/leads-ui:latest
+        image: ankg2005/leads-ui:latest
         ports:
         - containerPort: 80
         livenessProbe:
