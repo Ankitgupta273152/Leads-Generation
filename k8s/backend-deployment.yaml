@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: leads-api
-        image:ankg2005/leads-api:latest
+        image: ankg2005/leads-api:latest
         ports:
         - containerPort: 5000
         envFrom:
