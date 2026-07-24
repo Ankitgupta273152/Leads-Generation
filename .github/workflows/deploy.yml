@@ -32,14 +32,4 @@ jobs:
           docker push $DOCKER_USER/leads-ui:${{ github.sha }}
           docker push $DOCKER_USER/leads-ui:latest
 
-      - name: Deploy to Kubernetes
-        uses: azure/k8s-set-context@v3
-        with:
-          method: kubeconfig
-          kubeconfig: ${{ secrets.KUBE_CONFIG }}
-
-      - run: |
-          kubectl set image deployment/leads-api leads-api=$DOCKER_USER/leads-api:${{ github.sha }} -n leads-app
-          kubectl set image deployment/leads-ui leads-ui=$DOCKER_USER/leads-ui:${{ github.sha }} -n leads-app
-          kubectl rollout status deployment/leads-api -n leads-app
-          kubectl rollout status deployment/leads-ui -n leads-app
+      
